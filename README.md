@@ -137,7 +137,7 @@ Full dashboard available in:
 -Decisive play dominates over defensive strategies.
 
 ### Recommendations
--Develop predictive models incorporating opening and time control.
+- Develop predictive models incorporating opening and time control.
 - Analyze player-specific resilience under pressure.
 - Incorporate opening risk profiling into performance preparation.
 - Expand analysis into longitudinal rating progression.
