@@ -114,7 +114,7 @@ Screenshots of the Power BI dashboard are included in the /Screenshots folder:
   
 - Total Upsets By ECO Code →
   <p align="center">
-    <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Street%20Hotspots.png" width="500"/>
+    <img src="https://github.com/Michelle167/Chess-Dashboard-Analysis/blob/main/Screenshots/Total%20Upsets%20By%20Opening.png?raw=true" width="500"/>
   </p>
   
 - KPI Summary Cards →
