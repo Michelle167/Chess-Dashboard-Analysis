@@ -74,7 +74,7 @@ White maintains a slight first-move advantage, but matches remain highly competi
 
 
 ### Opening & Strategic Influence
-- **Opening Volatility Index (95.32)** confirms that opening selection strongly shapes match trajectory and decisiveness.
+- **Opening Effectiveness Rate (95.32)** confirms that opening selection strongly shapes match trajectory and decisiveness.
 
 - Certain ECO codes generate significantly higher upset frequencies, reinforcing the influence of structural and tactical complexity over rating advantage.
 
