@@ -1,159 +1,125 @@
 
-# NYC Traffic Accidents Analysis 
+# Chess Dashbard Analysis 
 ## **Overview**
-This project analyzes NYC Accidents records sourced from Kaggle, focusing on accident volume, geographic distribution, temporal trends, vehicle involvement, street hotspots, causes of collision, and road users affected. The goal is to uncover patterns, highlight risk factors, and provide actionable recommendations for improving road safety.
+This project analyzes competitive chess game data to uncover the key factors influencing match outcomes beyond player rating. The analysis focuses on outcome distribution, opening selection, rating differentials, time pressure levels, and upset frequency patterns.
+
+The goal is to identify how strategy, time control, and psychological performance interact to shape results, demonstrating that rating alone is not a sufficient predictor of success.
 
 ## **Dataset & Preprocessing**
 ### **Dataset Source**
-- Based on NYC Accidents records.
-- Obtained from Kaggle: [Global Traffic Accidents Dataset - NYC_Accidents.csv.](https://www.kaggle.com/datasets/adilshamim8/global-traffic-accidents-dataset?select=NYC_Accidents.csv)
-
+- Obtained from Kaggle: [Chess Game Dataset (Lichess)](https://www.kaggle.com/datasets/datasnaek/chesshttps)
 - Contains:
-- Date & time of crash
-- Borough and street location
-- Contributing factors (causes of collision)
-- Vehicle types involved
-- Road users affected
-- Injury and fatality counts
+- Game ID;
+- Rated (T/F);
+- Start Time;
+- End Time;
+- Number of Turns;
+- Game Status;
+- Winner;
+- Time Increment;
+- White Player ID;
+- White Player Rating;
+- Black Player ID;
+- Black Player Rating;
+- Moves;
+- Opening Eco;
+- Opening Ply
+ 
 ## **Preprocessing Steps**
-- **Handling Missing**-  Values → Replaced missing boroughs/streets with “Unspecified.”
-- Standardizing Categories → Unified vehicle type names.
-- **Date & Time Formatting** → Converted timestamps into Month, Day of Week, Time of Day.
-- **Aggregation** → Grouped accident counts by borough, street, month, and vehicle type.
-- **Derived Metrics** → Calculated totals for injuries, fatalities, and percentages of road users affected.
-- **Filter Creation** → Built filters for Crash Day and Time of Day.
+- **Data Cleaning** → Removed duplicates and standardized categorical values.
+- **Rating Differential Calculation** → Computed rating gap between players.
+- **Upset Identification** → Flagged games where lower-rated player won.
+- **Pressure Categorization** → Classified games into Low and Moderate pressure levels.
+- **Opening Grouping** → Aggregated openings by ECO code and name.
+- **KPI Derivation** → Calculated volatility, conversion rates, and neutralization rates..
+
 ## **Data Flow into Power BI**
-- **Raw Data Import** → Accident dataset loaded into Power BI.
-- **Transformations** → Applied Power Query steps for cleaning and formatting.
-- **Modeling** → Dataset kept as a single table (no relationships created).
-- **Visualizations** → Built charts, KPIs, and filters to highlight key findings.
+- **Raw Data Import** → Dataset loaded into Power BI.
+- **Power Query Transformations** → Applied cleaning and calculated columns.
+- **Data Modeling** → Structured as a fact table with derived measures.
+- **DAX Measures Created**:
+    - Upset Frequency Rate
+    - Opening Volatility Index
+    - Pressure Conversion Rate
+    - Average Rating Differential
+    - Draw Neutralization Rate
+- **Visualizations Built** → KPI cards, stacked bars, clustered columns, and line charts. 
 
 ## Key Findings
-### Accident Volume & Impact
-|Metric  | Value | 
+### Overall Outcome Distribution
+|Outcome  | Percentage | 
 | :----- | -------: |
-| Total Accidents | ~74K | 
-| Road Users Killed |~125K  | 
-|Road Users Injured| 753 |
-| Cause of Collision | 38 | 
-| Vehicle of Collision | 141 | 
+| White wins | 52% | 
+| Black Wins | 43%  | 
+| Draws | 5% |
+
+White maintains a slight first-move advantage, but matches remain highly competitive with low draw frequency.
 
 
-### Geographic Distribution
-|Borough | Total Accidents | 
+### Upset, Rating & Pressure Dynamics
+|Metric | Value | 
 | :----- | -------: |
-|Unspecified |  ~26K |
-| Brooklyn |  ~17K|  
-| Queens|~14K| 
-|Bronx|  ~9K |
-|Manhattan | ~7K  | 
-| Staten Island | ~1K | 
+|Upset Frequency Rate |  42.14% |
+| Average Rating Differential| 251.35 |  
+| Draw Neutralization Rate|5.41%| 
+| Pressure Conversion Rate|  52.04% |
+
+- **Upset Frequency Rate (42.14%)** shows a highly volatile competitive environment where lower-rated players frequently outperform expectations.
+
+- **Average Rating Differential (251.35)** suggests rating gaps are moderate — large enough to set expectations but small enough to allow competitive disruption.
+
+- **Pressure Conversion Rate (54.05%)** indicates that just over half of high-pressure situations are successfully converted into wins. This reflects moderate psychological resilience, highlighting decision-making under time constraints as a key performance driver.
+
+- **Draw Neutralization Rate (5.41%)** reveals that defensive stabilization is rare, meaning games tend to end decisively rather than through strategic neutralization.
 
 
+### Opening & Strategic Influence
+- **Opening Volatility Index (95.32)** confirms that opening selection strongly shapes match trajectory and decisiveness.
 
-### Temporal Trends
-|Month | Total Accidents | 
-| :----- | -------: |
-|January| ~14.2K |
-| February | ~13.6K|  
-| March|~11K| 
-|April| ~4.1K |
-|May | ~6.1K | 
-| June | ~7.6K |
-|July | ~9.1K || 
-| August| ~8.7K|
-
-Crash Day and Time of Day are available as filters.
+- Certain ECO codes generate significantly higher upset frequencies, reinforcing the influence of structural and tactical complexity over rating advantage.
 
 
-### Vehicle Involvement
-|Vehicle Type | Total Accidents | 
-| :----- | -------: |
-|Sedan |  ~47K |
-| Station Wagon |  ~39K|  
-| Taxi|~4K| 
-|Pick-up Truck|  ~4K |
-|Bike | ~3K  | 
-| Armored Truck | ~3K | 
-| Bus|~2K| 
+### Time Pressure & Game Volume
+|Format | Low Pressure | Moderate Pressure|
+| :----- | :-----: | -------: |
+|Blitz |  8.5K | 4.6K |
+| Rapid |  4.9K| 336 |
+| Classical| 204 | — |
+
+Blitz dominates total volume and moderate pressure conditions, increasing cognitive load and decisiveness.
 
 
-
-### Street Hotspots
-|Street| Total Accidents | 
-| :----- | -------: |
-|Unspecified |  ~19.2K |
-| Belt Parkway |  ~1.2K|  
-| Brooklyn Queens Expresssway|~0.8K| 
-|Long Island Expressway|  ~0.7K |
-|Federal Streetway | ~0.7K  | 
-| Cross Bronx Expressway| ~0.7K | 
-| Major Deegan Expressway|~0.6K| 
-|Grand Central Expressway |  ~0.6K |
-| Broadway |  ~0.6K|  
-| Atlantic Avenue|~0.5K| 
-
-
-
-### Causes of Collision
-|Cause of Collision| Total Accidents | 
-| :----- | -------: |
-|Unspecified |  ~60K |
-| Driver Distraction |  ~20K|  
-| Improper Lane Usage|~12K| 
-|Following Too Closely|  ~9K |
-|Backing Unsafely| ~3K  | 
-|Other Vehicular| ~3K | 
-| Unsafe Speed|~2K| 
-|Traffic Control Disregarded |  ~2K |
-| Driver Inexperience |  ~1K|  
-| Reaction to Uninvolved Vehicle|~1K| 
-
-
-### Road Users Affected
-|Road User| Total Accidents | 
-| :----- | -------: |
-|Pedestrians |  33.3% | 
-| Motorists|33.3%|
-| Cyclists | 33.3%|  
-
-
-### Visualizations
+## Visualizations
 Screenshots of the Power BI dashboard are included in the /Screenshots folder:
 
-- Accident Volume Summary →  
+- Overall Game Outcome Distribution →  
   <p align="center">
     <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Accident%20Volume%20Summary.png" width="500"/>
   </p>
   
-- Geographic Distribution →
+- Game Outcome By Opening →
   <p align="center">
     <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Geographic%20Distribution.png" width="500"/>
   </p>
   
-- Temporal Trends →
+- Draw Rate By Opening →
   <p align="center">
     <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Temporal%20Trends.png" width="500"/>
   </p>
   
-- Vehicle Involvement →
+- Game Volume By Category & Pressure Level →
   <p align="center">
     <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Vehicle%20Involvement.png" width="500"/>
   </p>
   
-- Street Hotspots →
+- Total Upsets By ECO Code →
   <p align="center">
     <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Street%20Hotspots.png" width="500"/>
   </p>
   
-- Causes of Collision →
+- KPI Summary Cards →
    <p align="center">
     <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Causes%20Of%20Collision.png" width="500"/>
-  </p>
-  
-- Road Users Affected →
-  <p align="center">
-    <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Road%20Users%20Affected.png" width="500"/>
   </p>
   
 Full dashboard available in:
@@ -164,22 +130,22 @@ Full dashboard available in:
   
 ## Insights & Recommendations
 ### Key Insights
-- High accident counts concentrated in Brooklyn and Queens.
-- Seasonal peaks in January and February.
-- Sedans and station wagons dominate accident involvement.
-- Belt Parkway and BQE are major hotspots.
-- Driver distraction and lane misuse are leading causes.
-- Equal impact across pedestrians, motorists, and cyclists.
-Recommendations
-- Improve data quality (reduce “unspecified” entries).
-- Target high‑risk roads with stricter monitoring.
-- Address driver behavior through awareness campaigns.
-- Increase patrols during winter months.
-- Enhance pedestrian crossings and cycling lanes.
-- Stricter enforcement of speed limits and traffic control compliance.
+- Chess outcomes are highly volatile despite rating differences.
+- Opening choice significantly influences match trajectory.
+- Blitz format intensifies unpredictability due to time pressure.
+- Moderate rating gaps create fertile ground for upsets.
+-Decisive play dominates over defensive strategies.
+
+### Recommendations
+-Develop predictive models incorporating opening and time control.
+- Analyze player-specific resilience under pressure.
+- Incorporate opening risk profiling into performance preparation.
+- Expand analysis into longitudinal rating progression.
 
 ### Conclusion
-This project provides a comprehensive analysis of NYC traffic accidents using Kaggle data and Power BI. By combining structured tables, interactive visuals, and actionable recommendations, it highlights critical safety challenges and opportunities for intervention. The findings emphasize the need for better data quality, targeted road safety measures, and behavioral change initiatives to reduce accidents and protect all road users.
+This project demonstrates that chess performance is multi-dimensional. While rating provides a baseline expectation, opening strategy, time pressure exposure, and psychological conversion under stress are decisive factors in determining outcomes.
+
+The interactive Power BI dashboard transforms raw match data into actionable performance insights, offering a structured framework for strategic and analytical evaluation of competitive chess.
 
 
  
