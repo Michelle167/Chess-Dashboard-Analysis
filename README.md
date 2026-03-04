@@ -94,22 +94,22 @@ Screenshots of the Power BI dashboard are included in the /Screenshots folder:
 
 - Overall Game Outcome Distribution →  
   <p align="center">
-    <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Accident%20Volume%20Summary.png" width="500"/>
+    <img src="https://github.com/Michelle167/Chess-Dashboard-Analysis/blob/main/Screenshots/Overall%20Game%20Outcome%20Distribution.png?raw=true" width="500"/>
   </p>
   
 - Game Outcome By Opening →
   <p align="center">
-    <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Geographic%20Distribution.png" width="500"/>
+    <img src="https://github.com/Michelle167/Chess-Dashboard-Analysis/blob/main/Screenshots/Game%20Outcome%20By%20Opening.png?raw=true" width="500"/>
   </p>
   
 - Draw Rate By Opening →
   <p align="center">
-    <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Temporal%20Trends.png" width="500"/>
+    <img src="https://github.com/Michelle167/Chess-Dashboard-Analysis/blob/main/Screenshots/Draw%20Rate%20By%20Opening.png?raw=true" width="500"/>
   </p>
   
 - Game Volume By Category & Pressure Level →
   <p align="center">
-    <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Vehicle%20Involvement.png" width="500"/>
+    <img src="https://github.com/Michelle167/Chess-Dashboard-Analysis/blob/main/Screenshots/Game%20Volume%20By%20Category%20&%20Time%20Pressure.png?raw=true" width="500"/>
   </p>
   
 - Total Upsets By ECO Code →
@@ -119,12 +119,12 @@ Screenshots of the Power BI dashboard are included in the /Screenshots folder:
   
 - KPI Summary Cards →
    <p align="center">
-    <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/Causes%20Of%20Collision.png" width="500"/>
+    <img src="https://github.com/Michelle167/Chess-Dashboard-Analysis/blob/main/Screenshots/KPI%20Summary.png?raw=true" width="500"/>
   </p>
   
 Full dashboard available in:
 <p align="center">
-    <img src="https://github.com/Michelle167/NYC-Traffic-Accident-Analysis/blob/main/Screenshots/NYC%20TRAFFIC%20ACCIDENT%20%20DASHBOARD.png" width="500"/>
+    <img src="https://github.com/Michelle167/Chess-Dashboard-Analysis/blob/main/Screenshots/Chess%20Game%20Dashboard.png?raw=true" width="500"/>
   </p>
 
   
